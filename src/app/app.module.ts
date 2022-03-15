@@ -16,6 +16,9 @@ import {MatCardModule} from '@angular/material/card';
 import { ProdutoComponent } from './views/produto/produto.component';
 import { ProdutoFormComponent } from './components/produto/produto-form/produto-form.component';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import {MatButtonModule} from '@angular/material/button';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
