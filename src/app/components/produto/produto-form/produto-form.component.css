@@ -1,0 +1,13 @@
+form {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.mat-form-field {
+    margin-left: 20px;
+}

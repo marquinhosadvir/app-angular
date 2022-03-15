@@ -19,6 +19,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDividerModule} from '@angular/material/divider';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,12 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     MatSnackBarModule,
     MatFormFieldModule,
-    MatDividerModule
+    MatDividerModule,
+    HttpClientModule,
+    FormsModule,
+    MatInputModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
