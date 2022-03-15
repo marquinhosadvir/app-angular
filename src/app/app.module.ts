@@ -14,6 +14,8 @@ import {MatListModule} from '@angular/material/list';
 import { HomeComponent } from './views/home/home.component';
 import {MatCardModule} from '@angular/material/card';
 import { ProdutoComponent } from './views/produto/produto.component';
+import { ProdutoFormComponent } from './components/produto/produto-form/produto-form.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ProdutoComponent } from './views/produto/produto.component';
     FooterComponent,
     NavComponent,
     HomeComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    ProdutoFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { ProdutoComponent } from './views/produto/produto.component';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
