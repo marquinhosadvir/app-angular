@@ -1,4 +1,5 @@
 .sidenav {
+    display: flex;
     background-color: #050672;
     width: 200px;
 }

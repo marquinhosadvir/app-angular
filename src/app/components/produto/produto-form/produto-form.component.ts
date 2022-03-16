@@ -10,12 +10,8 @@ import { ProdutoService } from '../produto.service';
 })
 export class ProdutoFormComponent implements OnInit {
 
-  produto: Produto = {
-    no_produto: '',
-    cd_ean: '',
-    nm_valor: 0,
-    nm_quantidade: 0,
-  }
+  produto: Produto = {}
+  
   constructor(private ProdutoService: ProdutoService,
     private router: Router) { }
 
@@ -26,7 +22,7 @@ export class ProdutoFormComponent implements OnInit {
   criaProduto(): void{
     this.ProdutoService.create(this.produto).subscribe(() => {
       this.ProdutoService.showMessage('Produto cadastrado com sucesso!')
-      this.router.navigate(['produtos'])
+      // this.router.navigate(['produtos'])
     })
   }
   cancel(): void{
