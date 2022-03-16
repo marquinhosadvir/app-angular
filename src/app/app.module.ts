@@ -22,6 +22,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {MatInputModule} from '@angular/material/input';
     HttpClientModule,
     FormsModule,
     MatInputModule,
+    MatTableModule,
 
 
   ],
