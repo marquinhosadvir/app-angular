@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 
 @Injectable({
   providedIn: 'root'
@@ -6,11 +7,26 @@ import { Injectable } from '@angular/core';
 export class StorageService {
 
   constructor() { }
+  getItem(key: string) {
+    const item = localStorage.getItem(key);
+    return (item) ? JSON.parse(item) : null;
+  }
 
-  getData(key: string): any {
-    return JSON.parse(localStorage.getItem(key));  
+  setItem(key: string, value: any): void {
+    localStorage.setItem(key, JSON.stringify(value));
   }
-  setData(key: string, data: any) {
-    localStorage.setItem(key, JSON.stringify(data));
+
+  removeItem(key: string): void {
+    localStorage.removeItem(key);
   }
+
+  clear() {
+    localStorage.clear();
+  }
+  // getData(key: string): any {
+  //   return JSON.parse(localStorage.getItem('key'));  
+  // }
+  // setData(key: string, data: any) {
+  //   localStorage.setItem(key, JSON.stringify(data));
+  // }
 }

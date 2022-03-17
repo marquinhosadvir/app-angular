@@ -25,6 +25,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { StorageService } from './services/storage.service';
 import { TodoListService } from './services/todo-list.service';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -52,8 +53,7 @@ import { TodoListService } from './services/todo-list.service';
     FormsModule,
     MatInputModule,
     MatTableModule,
-
-
+    NgxWebstorageModule.forRoot(),
   ],
   providers: [
     TodoListService,

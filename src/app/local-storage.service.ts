@@ -11,35 +11,21 @@ export class LocalStorageService {
     this.storage = window.localStorage;
   }
 
-  set(key: string, value: any): boolean {
-    if (this.storage) {
-      this.storage.setItem(key, JSON.stringify(value));
-      return true;
-    }
-    return false;
+  getItem(key: string) {
+    const item = localStorage.getItem(key);
+    return (item) ? JSON.parse(item) : null;
   }
 
-  get(key: string): any {
-    if (this.storage) {
-      // return JSON.parse(this.storage.getItem(key));
-    }
-    return null;
+  setItem(key: string, value: any): void {
+    localStorage.setItem(key, JSON.stringify(value));
   }
 
-  remove(key: string): boolean {
-    if (this.storage) {
-      this.storage.removeItem(key);
-      return true;
-    }
-    return false;
+  removeItem(key: string): void {
+    localStorage.removeItem(key);
   }
 
-  clear(): boolean {
-    if (this.storage) {
-      this.storage.clear();
-      return true;
-    }
-    return false;
+  clear() {
+    localStorage.clear();
   }
 
 }
