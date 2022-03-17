@@ -1,18 +1,17 @@
-.sidenav {
+.nav-bar {
     display: flex;
     background-color: #050672;
     width: 200px;
 }
 
-.sidenav a {
+.nav-bar a {
     color: #fff;
 }
 
-.sidenav i {
+.nav-bar i {
     padding-right: 10px;
 }
 
 .content {
     padding: 16px;
-    background-color: #fff;
 }

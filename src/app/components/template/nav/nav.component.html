@@ -1,21 +1,23 @@
-<mat-sidenav-container class="container">
-    <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="65">
-        <mat-nav-list class="nav-list">
-            <a mat-list-item routerLink="/">
-                <i class="material-icons">
-                    home
-                </i> Inicio
-            </a>
-            <mat-divider></mat-divider>
-            <a mat-list-item routerLink="produtos">
-                <i class="material-icons">
-                    storefront
-                </i> Produtos
-            </a>
-            <mat-divider></mat-divider>
-        </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content class="content">
+<div class="row">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white col-md-2 nav-bar" style="width: 210px;">
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li>
+                <a routerLink="/" class="nav-link text-white">
+                    <i class="material-icons v-middle">
+                        home
+                    </i> Inicio
+                </a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="produtos" class="nav-link" aria-current="page">
+                    <i class="material-icons v-middle">
+                        storefront
+                    </i> Produtos
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="content col-md-10">
         <router-outlet></router-outlet>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+    </div>
+</div>

@@ -22,36 +22,16 @@
                     <td width="50" class="text-center">{{row.id_produto}}</td>
                     <td>{{row.no_produto}}</td>
                     <td class="text-center">{{row.cd_ean}}</td>
-                    <td class="text-center">{{row.nm_valor}}</td>
+                    <td class="text-center">{{row.nm_valor | currency:"BRL"}}</td>
                     <td class="text-center">{{row.nm_quantidade}}</td>
                     <td class="text-center">
-                        <!-- <div class="btn-group">
-                            <ng-container *ngIf="filterExibe">
-                                <a class="btn-sm btn-outline-secondary" (click)="selectPessoa(row)">
-                                    <i class="fa fa-check-square-o"></i>
-                                </a>
-                            </ng-container>
-                            <ng-container *ngIf="!filterExibe">
-                                <a *ngIf="permissoesService.permissao(12,'criar') == 'S'" class="btn-warning btn-sm" (click)="atendimentoHospital(row)" title="Incluir na fila de Atendimento Hospital">
-                                    <i class="fa fa-ticket text-white"></i>
-                                </a>
-                                <a *ngIf="permissoesService.permissao(2,'criar') == 'S'" class="btn-info btn-sm" (click)="agendamento(row)" title="Agendamento Laboratório">
-                                    <i class="fa fa-id-card-o text-white"></i>
-                                </a>
-                                <a *ngIf="permissoesService.permissao(3,'criar') == 'S'" class="btn-info btn-sm" (click)="atendimento(row)" title="Atendimento Laboratório">
-                                    <i class="fa fa-flask text-white"></i>
-                                </a>
-                                <a *ngIf="permissoesService.permissao(55,'criar') == 'S'" class="btn-warning btn-sm" (click)="openModal(row)" title="Criar usuário">
-                                    <i class="fa fa-user-plus text-white"></i>
-                                </a>
-                                <a *ngIf="permissoesService.permissao(5,'atualizar') == 'S'" class="btn-success btn-sm" (click)="edit(row)">
-                                    <i class="fa fa-edit text-white"></i>
-                                </a>
-                                <a *ngIf="permissoesService.permissao(47,'criar') == 'S'" class="btn-dark btn-sm" (click)="aluno(row)" title="Cadastro de Aluno">
-                                    <i class="fa fa-graduation-cap text-white"></i>
-                                </a>
-                            </ng-container>
-                        </div> -->
+                        <div class="btn-group btn-group-sm">
+                            <a class="btn-success btn-sm">
+                                <i class="material-icons">
+                                    edit
+                                </i>
+                            </a>
+                        </div>
                     </td>
                 </tr>
             </tbody>

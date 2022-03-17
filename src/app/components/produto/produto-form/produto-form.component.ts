@@ -22,6 +22,7 @@ export class ProdutoFormComponent implements OnInit {
   criaProduto(): void{
     this.ProdutoService.create(this.produto).subscribe(() => {
       this.ProdutoService.showMessage('Produto cadastrado com sucesso!')
+      // this.produto.reset();
       // this.router.navigate(['produtos'])
     })
   }
