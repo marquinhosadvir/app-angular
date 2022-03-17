@@ -23,6 +23,7 @@ export class StorageService {
   clear() {
     localStorage.clear();
   }
+  
   // getData(key: string): any {
   //   return JSON.parse(localStorage.getItem('key'));  
   // }
