@@ -2,16 +2,16 @@
     <mat-card-title>Cadastro de Produto</mat-card-title>
     <form>
         <mat-form-field>
-            <input matInput placeholder="Produto" [(ngModel)]="produto.no_produto" name="no_produto">
+            <input matInput placeholder="Produto" [(ngModel)]="produto.no_produto" name="no_produto" #no_produtoCtrl="ngModel">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Código de Barras" [(ngModel)]="produto.cd_ean" name="cd_ean">
+            <input matInput placeholder="Código de Barras" [(ngModel)]="produto.cd_ean" name="cd_ean" #cd_eanCtrl="ngModel">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Valor" [(ngModel)]="produto.nm_valor" name="nm_valor">
+            <input matInput placeholder="Valor" [(ngModel)]="produto.nm_valor" name="nm_valor" #nm_valorCtrl="ngModel">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Quantidade" [(ngModel)]="produto.nm_quantidade" name="nm_quantidade">
+            <input matInput placeholder="Quantidade" [(ngModel)]="produto.nm_quantidade" name="nm_quantidade" #nm_quantidadeCtrl="ngModel">
         </mat-form-field>
     </form>
     <button mat-raised-button (click)="setStorage()" color="primary">

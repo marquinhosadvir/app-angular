@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Produto } from 'src/app/components/produto/produto.model';
 import { ProdutoService } from 'src/app/components/produto/produto.service';
 import { StorageService } from 'src/app/services/storage.service';
+import { LocalStorageService } from 'src/app/local-storage.service';
 
 @Component({
   selector: 'app-produto',
@@ -12,6 +13,7 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./produto.component.css']
 })
 export class ProdutoComponent implements OnInit {
+  
   // rows: Produto[];
   // produtos: Produto[]
   
@@ -27,27 +29,64 @@ export class ProdutoComponent implements OnInit {
     nm_quantidade: ''
   };
   // rows: Produto[] = [];
-  storageid_produto: string | undefined;
-  rows: Object = {};
+  // storageid_produto: string | undefined;
+  // storageObject: any;
+  // person = { name: '', country: '' };
+  storageId_produto: number | undefined;
+  storageNo_produto: string | undefined;
+  storageCd_ean: string | undefined;
+  storageNm_valor: number | undefined;
+  storageNm_quantidade: number | undefined;
+  storageObject: any;
 
-  constructor(private router: Router, private produtoService: ProdutoService, private storage: StorageService ) { }
+  constructor(
+    private storage: StorageService
+  ) { }
+
 
   ngOnInit(): void {
-    this.getStorage();
-    // .subscribe(produtos => {
-    //   this.rows = produtos
-    // this.getAll()
-      // console.log(produtos)
-    // })
+    this.storage.observeStorageIten('no_produto')
+      .subscribe((value) => {
+        if (value) 
+          alert('Set new value to local storage key no_produto : ' + value);
+      });
+  }
+
+  setStorage() {
+    // To save string
+    this.storage.saveValue('id_produto', this.produto.id_produto);
+
+    // To save object, need to convert to string
+    this.storage.saveValue('produto', JSON.stringify({ id_produto: this.produto.id_produto, 
+      no_produto: this.produto.no_produto,
+      cd_ean: this.produto.cd_ean,
+      nm_valor: this.produto.nm_valor,
+      nm_quantidade: this.produto.nm_quantidade,
+    }));
+    alert('Set storage variable and object successfull');
   }
 
   getStorage() {
-    this.storageid_produto = this.storage.getItem('id_produto');
-    this.rows = this.storage.getItem('produto');
+    this.storageId_produto = this.storage.retrieveValue('id_produto');
+    this.storageNo_produto = this.storage.retrieveValue('no_produto');
+    this.storageCd_ean = this.storage.retrieveValue('cd_ean');
+    this.storageNm_valor = this.storage.retrieveValue('nm_valor');
+    this.storageNm_quantidade = this.storage.retrieveValue('nm_quantidade');
+    this.storageObject = JSON.parse(this.storage.retrieveValue('produto'));
   }
-  CriarProduto(): void{
-    this.router.navigate(['produtos/criar'])
+
+  removeItemStorage(key: string) {
+    this.storage.removeValue(key);
   }
+
+  clearAllStorage() {
+    this.storage.clear();
+    this.storageNo_produto = '';
+    this.storageObject = {};
+  }
+  // CriarProduto(): void{
+  //   this.router.navigate(['produtos/criar'])
+  // }
   changeComponent() {
     this.component = !this.component;
     this.change();
@@ -62,15 +101,15 @@ export class ProdutoComponent implements OnInit {
       this.icon = "ft-search";
     }
   }
-  getAll(): void {
-    this.rows = [];
-    //this.loadingService.show();
-    this.produtoService.read().subscribe(response => {
-      //this.loadingService.close();
-      this.rows = response;
-      // this.total = this.rows.length;
-      console.log(this.rows);
-    });
-  }
+  // getAll(): void {
+  //   this.rows = [];
+  //   //this.loadingService.show();
+  //   this.produtoService.read().subscribe(response => {
+  //     //this.loadingService.close();
+  //     this.rows = response;
+  //     // this.total = this.rows.length;
+  //     console.log(this.rows);
+  //   });
+  // }
 
 }

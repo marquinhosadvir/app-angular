@@ -1,33 +1,30 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
+import { StorageMap } from '@ngx-pwa/local-storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
 
-  constructor() { }
-  getItem(key: string) {
-    const item = localStorage.getItem(key);
-    return (item) ? JSON.parse(item) : null;
+  constructor(private lStorage: LocalStorageService) { }
+  saveValue(key: string, value: string) {
+    this.lStorage.store(key, value);
   }
 
-  setItem(key: string, value: any): void {
-    localStorage.setItem(key, JSON.stringify(value));
+  retrieveValue(key: string) {
+    return this.lStorage.retrieve(key);
   }
 
-  removeItem(key: string): void {
-    localStorage.removeItem(key);
+  removeValue(key: string): void {
+    this.lStorage.clear(key);
   }
 
   clear() {
-    localStorage.clear();
+    this.lStorage.clear();
   }
-  
-  // getData(key: string): any {
-  //   return JSON.parse(localStorage.getItem('key'));  
-  // }
-  // setData(key: string, data: any) {
-  //   localStorage.setItem(key, JSON.stringify(data));
-  // }
+
+  observeStorageIten(key: string) {
+    return this.lStorage.observe(key);
+  }
 }
