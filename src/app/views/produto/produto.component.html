@@ -1,9 +1,5 @@
-<!-- <button mat-raised-button (click)="CriarProduto()">
-    Novo Produto
-</button> -->
 <button mat-raised-button (click)="changeComponent()"><i [class]="icon"></i> {{label}}</button>
-<!-- <app-pessoa-form *ngIf="!component" [pessoa]="pessoa" [endereco]="endereco"></app-pessoa-form> -->
-<app-produto-form *ngIf="!component" [produto]="produto"></app-produto-form>
+<app-produto-form *ngIf="!component" (produtoEmit)="addItem($event)" [produto]="produto"></app-produto-form>
 <div *ngIf="component" class="card-content">
     <div class="col-sm-12">
         <table class="table table-hover table-bordered table-striped">

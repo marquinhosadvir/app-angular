@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 import { LocalStorage } from 'ngx-webstorage';
 import { Observable } from 'rxjs';
 import { ApiUrl } from 'src/app/enums/api.enum';
-import { Produto } from './produto.model';
+import { IProduto } from './produto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,18 +23,18 @@ export class ProdutoService {
     })
   }
 
-  create(produto: Produto): Observable<Produto> {
-    return this.http.post<Produto>(this.baseUrl, produto)
+  create(produto: IProduto): Observable<IProduto> {
+    return this.http.post<IProduto>(this.baseUrl, produto)
   }
 
-  read(): Observable<Produto[]> {
-    let produtos: Produto[] = []
+  read(): Observable<IProduto[]> {
+    let produtos: IProduto[] = []
 
-    return this.http.get<Produto[]>(this.baseUrl)
+    return this.http.get<IProduto[]>(this.baseUrl)
   }
 
-  consultar(): Array<Produto> {
-    let produtos: Produto[] = [];
+  consultar(): Array<IProduto> {
+    let produtos: IProduto[] = [];
     for (let i = 0; i < LocalStorage.length; i++) {
       produtos.push(
         // JSON.parse(

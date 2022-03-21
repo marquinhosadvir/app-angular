@@ -26,6 +26,8 @@ import { MatTableModule } from '@angular/material/table';
 import { StorageService } from './services/storage.service';
 import { TodoListService } from './services/todo-list.service';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { CurrencyMaskModule } from "ng2-currency-mask";
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     MatInputModule,
     MatTableModule,
     NgxWebstorageModule.forRoot(),
+    CurrencyMaskModule,
+    SweetAlert2Module
   ],
   providers: [
     TodoListService,
