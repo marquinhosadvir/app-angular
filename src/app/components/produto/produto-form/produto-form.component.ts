@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/local-storage.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -11,19 +11,21 @@ import { ProdutoService } from '../produto.service';
   styleUrls: ['./produto-form.component.css']
 })
 export class ProdutoFormComponent implements OnInit {
-  produto = { 
-    id_produto: '', 
-    no_produto: '', 
-    cd_ean: '', 
-    nm_valor: '', 
-    nm_quantidade: ''
-   };
+  @Input() produto: Produto = {};
+  // @Input() produtoEmit?: string;
+  // produto = { 
+  //   id_produto: '', 
+  //   no_produto: '', 
+  //   cd_ean: '', 
+  //   nm_valor: '', 
+  //   nm_quantidade: ''
+  //  };
+  produtos: Produto[] = [];
   storageId_produto = '';
   storageObject: any;
   // produto: Produto = {}
-  
-  constructor(private ProdutoService: ProdutoService,
-    private router: Router, private storage: LocalStorageService) { }
+
+  constructor(private storage: LocalStorageService) { }
 
   ngOnInit(): void {
     // this.storage.observeItem('id_produto')
@@ -56,7 +58,7 @@ export class ProdutoFormComponent implements OnInit {
   // setStorage() {
   //   this.storage.setItem('id_produto', this.produto.id_produto);
   //   this.storage.setItem('produto', {
-      
+
   //   });
   //   alert('Set storage variable and object successfull');
   // }
@@ -77,25 +79,37 @@ export class ProdutoFormComponent implements OnInit {
   //     nm_quantidade: this.produto.nm_quantidade }))
   //   .subscribe(() => {});
   // }
-  setStorage() {
-    this.storage.setItem('id_produto', this.produto.id_produto);
-    this.storage.setItem('produto', {
-      id_produto: this.produto.id_produto,
+  adicionar() {
+    this.produtos.push({
+      // id_produto: this.produto.id_produto,
       no_produto: this.produto.no_produto,
       cd_ean: this.produto.cd_ean,
       nm_valor: this.produto.nm_valor,
-      nm_quantidade: this.produto.nm_quantidade,
+      nm_quantidade: this.produto.nm_quantidade
+    })
+
+    //Adicionando no localstorage
+    localStorage.setItem("produtos", JSON.stringify(this.produtos));
+  }
+  setStorage() {
+    this.storage.setItem('id_produto', this.produto?.id_produto);
+    this.storage.setItem('produto', {
+      id_produto: this.produto?.id_produto,
+      no_produto: this.produto?.no_produto,
+      cd_ean: this.produto?.cd_ean,
+      nm_valor: this.produto?.nm_valor,
+      nm_quantidade: this.produto?.nm_quantidade,
     });
-    alert('Set storage variable and object successfull');
+    alert('Produto Cadastrado');
   }
 
   getStorage() {
     this.storage.getItem('id_produto').subscribe((data: any) => {
       if (data) {
-        this.storageId_produto = data;
+        this.produto = data;
       }
     });
-   
+
     this.storage.getItem('produto').subscribe((data: any) => {
       if (data) {
         this.storageObject = JSON.parse(data);
