@@ -33,12 +33,13 @@ export class ProdutoComponent implements OnInit {
     // console.log(this.rows)
   }
   addItem(newItem: string) {
-    this.rows.push(
-      this.rows = this.produtoEmit.emit(
-        this.storage.getItem(this.produto.toString())
-      )
+    let produtos = this.storage.getItem(this.produto.toString());
+    console.log(produtos)
+    this.rows.push( produtos
+      // this.rows = this.produtoEmit.emit(
+      //   this.storage.getItem(this.produto.toString())
+      // )
     );
-    console.log(this.rows)
   }
 
   edit(produto: IProduto) {
