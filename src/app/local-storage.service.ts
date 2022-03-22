@@ -16,8 +16,12 @@ export class LocalStorageService {
     return (item) ? JSON.parse(item) : null;
   }
 
-  setItem(key: string, value: any): void {
-    localStorage.setItem(key, JSON.stringify(value));
+  setItem(value: any): void {
+    let id: number = 0;
+    for (let index = 0; index < localStorage.length; index++) {
+      id++;
+    }
+    localStorage.setItem(id.toString(), JSON.stringify(value));
   }
 
   removeItem(key: string): void {

@@ -9,7 +9,8 @@ import { IProduto } from '../produto.model';
 })
 export class ProdutoFormComponent implements OnInit {
   @Input() produto: IProduto = {};
-  @Output() produtoEmit = new EventEmitter<string>(); 
+  @Output() produtoEmit = new EventEmitter<IProduto>();
+  @Output() extrato = new EventEmitter<number>();
   storageObject: any;
 teste: number = 0;
 text: string = "";
@@ -23,6 +24,7 @@ mtc: boolean = true;
   constructor(private storage: LocalStorageService) { }
 
   ngOnInit(): void {
+    this.extrato.emit(28);
     // this.y = [
     // ];
     // this.y.push({id_produto: 5, no_produto: "Martelo", cd_ean: "4567892314", nm_valor: 50.00, nm_quantidade: 20})
@@ -34,10 +36,8 @@ mtc: boolean = true;
     if (!this.produto.id_produto) {
       this.produto.id_produto = Number(Math.random());
     }
-    this.storage.setItem(
-      this.produto.id_produto.toString(), this.produto
-    );
-    // this.produtoEmit.emit(this.produto.toString());
+    this.storage.setItem(this.produto);
+    this.produtoEmit.emit(this.produto);
     this.produto = {};
     alert('Produto Cadastrado');
   }

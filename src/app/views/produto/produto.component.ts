@@ -13,11 +13,10 @@ import { LocalStorageService } from 'src/app/local-storage.service';
   styleUrls: ['./produto.component.css']
 })
 export class ProdutoComponent implements OnInit {
-  @Output() produtoEmit= new EventEmitter<string>();
   component: boolean = true;
   label: string = "Novo Cadastro";
   icon: string = "fa fa-plus";
-  rows: any = [];
+  rows: IProduto[] = [];
   produto: IProduto = {};
 
   constructor(
@@ -26,20 +25,20 @@ export class ProdutoComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.rows = this.storage.getItem(this.produto.toString())
+    for (let index = 0; index < localStorage.length; index++) {
+      this.rows.push(this.storage.getItem(index.toString()));
+    }
     // this.rows = this.produtoEmit.emit(
     //   this.storage.getItem(this.produto.toString())
     // );
-    // console.log(this.rows)
+    console.log(this.rows)
   }
-  addItem(newItem: string) {
-    let produtos = this.storage.getItem(this.produto.toString());
-    console.log(produtos)
-    this.rows.push( produtos
-      // this.rows = this.produtoEmit.emit(
-      //   this.storage.getItem(this.produto.toString())
-      // )
-    );
+  addItem(newItem: IProduto) {
+    this.rows.push(newItem);
+  }
+
+  getExtrato(item: number){
+    console.log(item)
   }
 
   edit(produto: IProduto) {
@@ -69,8 +68,6 @@ export class ProdutoComponent implements OnInit {
       this.icon = "ft-search";
     }
   }  
-  addNewItem(value: string) {
-    this.produtoEmit.emit(value);
-  }
+  
 
 }
