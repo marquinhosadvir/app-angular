@@ -1,36 +1,46 @@
 {
-    "cars": [{
-            "id": 1,
-            "dc_modelo": "BMW X7",
-            "dc_cor": "Preto",
-            "nm_valor": 455.95
-        },
-        {
-            "id": 2,
-            "dc_modelo": "Mercedes benz c180",
-            "dc_cor": "Azul",
-            "nm_valor": 194.9
-        },
-        {
-            "id": 3,
-            "dc_modelo": "Land Rover Range Rover Velar",
-            "dc_cor": "Branco",
-            "nm_valor": 377.38
-        }
-    ],
-    "enderecos": [{
-            "id": "1",
-            "nm_cep": "44655000",
-            "dc_logradouro": "Av Getúlio Vargas",
-            "nm_numero": "130",
-            "dc_complemento": "",
-            "dc_bairro": "Centro",
-            "dc_cidade": "Pé de Serra"
-        },
-        {
-            "nm_cep": "44655000",
-            "dc_logradouro": "RUA MONTE BELO",
-            "id": "063z6GF"
-        }
-    ]
+  "cars": [
+    {
+      "id": 1,
+      "dc_modelo": "BMW X7",
+      "dc_cor": "Preto",
+      "nm_valor": 455.95
+    },
+    {
+      "id": 2,
+      "dc_modelo": "Mercedes benz c180",
+      "dc_cor": "Azul",
+      "nm_valor": 194.9
+    },
+    {
+      "id": 3,
+      "dc_modelo": "Land Rover Range Rover Velar",
+      "dc_cor": "Branco",
+      "nm_valor": 377.38
+    }
+  ],
+  "enderecos": [
+    {
+      "id": "1",
+      "nm_cep": "44655000",
+      "dc_logradouro": "Av Getúlio Vargas",
+      "nm_numero": "130",
+      "dc_complemento": "",
+      "dc_bairro": "Centro",
+      "dc_cidade": "Pé de Serra"
+    },
+    {
+      "nm_cep": "44655000",
+      "dc_logradouro": "RUA MONTE BELO",
+      "id": "063z6GF"
+    },
+    {
+      "nm_cep": "44655000",
+      "id": "bivM8xU"
+    },
+    {
+      "nm_cep": "44655000",
+      "id": "ytrz1nb"
+    }
+  ]
 }

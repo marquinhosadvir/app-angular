@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-input',
@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent implements OnInit {
-  size: any;
-  id: any;
-  name: any;
-  placeholder: any;
-  class: any;
-  type: any;
+  @Input() class: any;
+  @Input() name: any;
+  @Input() placeholder: any;
+  @Input() type: any;
+  @Input() style: any;
+  @Input() id: any;
   constructor() { }
 
   ngOnInit(): void {
