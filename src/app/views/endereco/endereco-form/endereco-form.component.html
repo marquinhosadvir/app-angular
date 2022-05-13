@@ -1,1 +1,34 @@
-<p>endereco-form works!</p>
+<div class="card">
+    <div class="card-body">
+        <form class="row g-3" (ngSubmit)="Salvar(f)" #f="ngForm" novalidate>
+            <div class="col-sm-2">
+                <label for="nm_cep" class="form-label">CEP</label>
+                <input type="text" class="form-control" [(ngModel)]="endereco.nm_cep" name="nm_cep" id="nm_cep">
+            </div>
+            <div class="col-sm-6">
+                <label for="dc_logradouro" class="form-label">Logradouro</label>
+                <app-input [(ngModel)]="endereco.dc_logradouro" (name)="'dc_logradouro'" (class)="'form-control'" (type)="'text'"></app-input>
+                <!-- <input type="text" class="form-control" [(ngModel)]="endereco.dc_logradouro" name="dc_logradouro" id="dc_logradouro"> -->
+            </div>
+            <div class="col-sm-2">
+                <label for="nm_numero" class="form-label">Número</label>
+                <input type="text" class="form-control" [(ngModel)]="endereco.nm_numero" name="nm_numero" id="nm_numero">
+            </div>
+            <div class="col-sm-6">
+                <label for="dc_complemento" class="form-label">Complemento</label>
+                <input type="text" class="form-control" [(ngModel)]="endereco.dc_complemento" name="dc_complemento" id="dc_complemento">
+            </div>
+            <div class="col-sm-3">
+                <label for="dc_bairro" class="form-label">Bairro</label>
+                <input type="text" class="form-control" [(ngModel)]="endereco.dc_bairro" name="dc_bairro" id="dc_bairro">
+            </div>
+            <div class="col-sm-3">
+                <label for="dc_cidade" class="form-label">Cidade</label>
+                <input type="text" class="form-control" [(ngModel)]="endereco.dc_cidade" name="dc_cidade" id="dc_cidade">
+            </div>
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,1 +1,43 @@
-<p>endereco works!</p>
+<button mat-raised-button (click)="changeComponent()"><i [class]="icon"></i> {{label}}</button>
+<app-endereco-form *ngIf="!component" (enderecoEmit)="addItem($event)"></app-endereco-form>
+<div *ngIf="component" class="card-content">
+    <div class="col-sm-12">
+        <table class="table table-hover table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th width="50" class="text-center">ID</th>
+                    <th width="50" class="text-center">CEP</th>
+                    <th>Endereço</th>
+                    <th class="text-center">Complemento</th>
+                    <th class="text-center">Bairro</th>
+                    <th class="text-center">Cidade</th>
+                    <th class="text-center">Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <tr *ngFor="let row of rows">
+                        <td width="50" class="text-center">{{row.id}}</td>
+                        <td>{{row.nm_cep}}</td>
+                        <td class="text-center">{{row.dc_logradouro}}, {{row.nm_numero}}</td>
+                        <td class="text-center">{{row.dc_complemento}}</td>
+                        <td class="text-center">{{row.dc_bairro}}</td>
+                        <td class="text-center">{{row.dc_cidade}}</td>
+                        <td class="text-center">
+                            <div class="btn-group btn-group-sm">
+                                <a class="btn-success btn-sm" (click)="edit(row)">
+                                    <i class="material-icons">
+                                    edit
+                                </i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12">
+        <!-- <ng-container *ngIf="total > 0">{{total}} <small> registros</small></ng-container>
+        <pagination-controls class="float-right" (pageChange)="p=$event" previousLabel="Anterior" nextLabel="Próxima" maxSize="10" responsive="true"></pagination-controls> -->
+    </div>
+</div>
