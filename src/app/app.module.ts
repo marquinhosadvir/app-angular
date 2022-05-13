@@ -28,6 +28,9 @@ import { TodoListService } from './services/todo-list.service';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { EnderecoComponent } from './views/endereco/endereco.component';
+import { EnderecoFormComponent } from './views/endereco/endereco-form/endereco-form.component';
+import { InputComponent } from './components/input/input.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     NavComponent,
     HomeComponent,
     ProdutoComponent,
-    ProdutoFormComponent
+    ProdutoFormComponent,
+    EnderecoComponent,
+    EnderecoFormComponent,
+    InputComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +63,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     MatTableModule,
     NgxWebstorageModule.forRoot(),
     CurrencyMaskModule,
-    SweetAlert2Module
+    SweetAlert2Module,
   ],
   providers: [
     TodoListService,

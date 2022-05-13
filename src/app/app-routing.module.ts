@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { ProdutoComponent } from './views/produto/produto.component';
 import { ProdutoFormComponent } from './components/produto/produto-form/produto-form.component';
+import { EnderecoComponent } from './views/endereco/endereco.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: "produtos/criar",
     component: ProdutoFormComponent
+  },
+  {
+    path: "enderecos",
+    component: EnderecoComponent
   }
 ];
 
